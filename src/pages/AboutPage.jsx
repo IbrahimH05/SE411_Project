@@ -1,5 +1,5 @@
 const TEAM = [
-  { name: 'Ibrahim Alhalaki', studentId: 'TODO-STUDENT-ID', role: 'Frontend & architecture', placeholder: true },
+  { name: 'Ibrahim Alhalaki', studentId: '223110482', role: 'Frontend & architecture' },
   { name: 'Muhammad Abanmi', studentId: '222110412', role: 'Frontend' },
   { name: 'Team member 3', studentId: 'TODO-STUDENT-ID', role: 'To be confirmed', placeholder: true },
 ];

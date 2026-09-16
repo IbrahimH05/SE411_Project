@@ -27,8 +27,9 @@ describe('navigation', () => {
     renderApp({ assets: portfolio, route: '/about' });
     expect(screen.getByText('Ibrahim Alhalaki')).toBeInTheDocument();
     expect(screen.getByText('Muhammad Abanmi')).toBeInTheDocument();
+    expect(screen.getByText('223110482')).toBeInTheDocument();
     expect(screen.getByText('222110412')).toBeInTheDocument();
-    expect(screen.getAllByText(/TODO-STUDENT-ID/)).toHaveLength(2);
+    expect(screen.getAllByText(/TODO-STUDENT-ID/)).toHaveLength(1);
   });
 });
 

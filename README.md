@@ -106,7 +106,7 @@ a user reaches it.
 
 | Name | Student ID |
 | --- | --- |
-| Ibrahim Alhalaki | *to be added* |
+| Ibrahim Alhalaki | 223110482 |
 | Muhammad Abanmi | 222110412 |
 | *third member* | *to be added* |
 

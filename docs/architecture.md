@@ -151,6 +151,32 @@ error rendering exist once.
 
 ---
 
+## 5a. Visual design
+
+The interface is themed after a **United States banknote** — aged paper and engraved
+green ink — because the product is a financial one and a generic dashboard theme says
+nothing about what it holds.
+
+| Element | Treatment |
+| --- | --- |
+| Ground | Beige paper (`#f0ead9`) with a faint cross-hatch, echoing the guilloche ground printed on currency |
+| Ink | Deep engraving green (`#143b25` / `#1e5435`) for headings, figures, primary actions |
+| Losses | Deep burgundy (`#8c2f39`) rather than a bright red — the seal colour on a note, not an alert colour |
+| Cards | Cream stock with a hairline inner rule set inside the outer border, the way a note is framed |
+| Headings | Playfair Display — a high-contrast serif close to engraved plate lettering |
+| Data | Inter with `font-variant-numeric: tabular-nums`, so figures align in columns |
+| Labels | Small, uppercase, widely letter-spaced, as on the denomination captions |
+
+Two constraints kept it from tipping into pastiche: the texture sits at roughly 2%
+opacity so it reads as paper grain rather than pattern, and no ornament is used that
+would cost legibility. Contrast was checked against the beige ground — body text,
+muted text, both accent colours and all button states clear WCAG AA.
+
+The entire theme is 25 CSS custom properties at the top of `index.css`. Re-theming is
+an edit to that one block; no component references a colour directly.
+
+---
+
 ## 6. Key design decisions
 
 **Validation returns an error map, not a boolean.** `validateAsset` returns
