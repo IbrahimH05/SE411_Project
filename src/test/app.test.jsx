@@ -23,13 +23,23 @@ describe('navigation', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'About' })).toBeInTheDocument();
   });
 
-  it('shows the team on the about page', () => {
+  it('shows every team member with their student id', () => {
     renderApp({ assets: portfolio, route: '/about' });
     expect(screen.getByText('Ibrahim Alhalaki')).toBeInTheDocument();
     expect(screen.getByText('Muhammad Abanmi')).toBeInTheDocument();
     expect(screen.getByText('223110482')).toBeInTheDocument();
     expect(screen.getByText('222110412')).toBeInTheDocument();
-    expect(screen.getAllByText(/TODO-STUDENT-ID/)).toHaveLength(1);
+  });
+
+  it('states plainly that the team is short of three members', () => {
+    renderApp({ assets: portfolio, route: '/about' });
+    expect(screen.getByText(/2 of 3 members/)).toBeInTheDocument();
+  });
+
+  it('leaves no placeholder text on the about page', () => {
+    renderApp({ assets: portfolio, route: '/about' });
+    expect(screen.queryByText(/TODO/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/placeholder/i)).not.toBeInTheDocument();
   });
 });
 

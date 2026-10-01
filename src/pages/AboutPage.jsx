@@ -1,8 +1,9 @@
 const TEAM = [
   { name: 'Ibrahim Alhalaki', studentId: '223110482', role: 'Frontend & architecture' },
   { name: 'Muhammad Abanmi', studentId: '222110412', role: 'Frontend' },
-  { name: 'Team member 3', studentId: 'TODO-STUDENT-ID', role: 'To be confirmed', placeholder: true },
 ];
+
+const TEAM_SIZE_TARGET = 3;
 
 const initials = (name) =>
   name.split(' ').filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase();
@@ -26,12 +27,16 @@ export function AboutPage() {
               <h3>{member.name}</h3>
               <div className="team-id">{member.studentId}</div>
               <p className="asset-name">{member.role}</p>
-              {member.placeholder && (
-                <p className="placeholder-note">Placeholder — replace before submission</p>
-              )}
             </div>
           ))}
         </div>
+
+        {TEAM.length < TEAM_SIZE_TARGET && (
+          <p className="team-note">
+            This team has {TEAM.length} of {TEAM_SIZE_TARGET} members. A third member has
+            not been assigned.
+          </p>
+        )}
       </div>
 
       <div className="card">

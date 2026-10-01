@@ -108,9 +108,9 @@ a user reaches it.
 | --- | --- |
 | Ibrahim Alhalaki | 223110482 |
 | Muhammad Abanmi | 222110412 |
-| *third member* | *to be added* |
 
-The About page in the app carries the same list and marks outstanding entries.
+The brief asks for groups of three; this team currently has two. The About page shows
+the same list and states that plainly rather than carrying a placeholder.
 
 ---
 

@@ -362,7 +362,14 @@ tbody tr:hover { background: var(--green-wash); }
   font-size: 0.85rem;
   letter-spacing: 0.03em;
 }
-.placeholder-note { color: var(--gold); font-size: 0.8rem; margin-top: 8px; font-weight: 500; }
+.team-note {
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-muted);
+  font-size: 0.86rem;
+  font-style: italic;
+}
 
 .spec-list { color: var(--ink-muted); padding-left: 20px; margin: 0; }
 .spec-list li { margin-bottom: 6px; }
