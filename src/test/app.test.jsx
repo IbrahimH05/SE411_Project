@@ -27,13 +27,15 @@ describe('navigation', () => {
     renderApp({ assets: portfolio, route: '/about' });
     expect(screen.getByText('Ibrahim Alhalaki')).toBeInTheDocument();
     expect(screen.getByText('Muhammad Abanmi')).toBeInTheDocument();
+    expect(screen.getByText('Firas Ehab Mustafa Ismail')).toBeInTheDocument();
     expect(screen.getByText('223110482')).toBeInTheDocument();
     expect(screen.getByText('222110412')).toBeInTheDocument();
+    expect(screen.getByText('222110757')).toBeInTheDocument();
   });
 
-  it('states plainly that the team is short of three members', () => {
+  it('shows no shortfall note now the team is complete', () => {
     renderApp({ assets: portfolio, route: '/about' });
-    expect(screen.getByText(/2 of 3 members/)).toBeInTheDocument();
+    expect(screen.queryByText(/of 3 members/)).not.toBeInTheDocument();
   });
 
   it('leaves no placeholder text on the about page', () => {

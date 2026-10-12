@@ -108,9 +108,9 @@ a user reaches it.
 | --- | --- |
 | Ibrahim Alhalaki | 223110482 |
 | Muhammad Abanmi | 222110412 |
+| Firas Ehab Mustafa Ismail | 222110757 |
 
-The brief asks for groups of three; this team currently has two. The About page shows
-the same list and states that plainly rather than carrying a placeholder.
+The About page in the app shows the same list.
 
 ---
 

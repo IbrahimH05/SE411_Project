@@ -1,6 +1,7 @@
 const TEAM = [
   { name: 'Ibrahim Alhalaki', studentId: '223110482', role: 'Frontend & architecture' },
   { name: 'Muhammad Abanmi', studentId: '222110412', role: 'Frontend' },
+  { name: 'Firas Ehab Mustafa Ismail', studentId: '222110757', role: 'Frontend' },
 ];
 
 const TEAM_SIZE_TARGET = 3;
