@@ -10,6 +10,18 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Restores the deep link that 404.html stashed, before React mounts.
+      (function () {
+        var redirect = sessionStorage.getItem('spa-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa-redirect');
+          if (redirect !== location.href) {
+            history.replaceState(null, '', redirect);
+          }
+        }
+      })();
+    </script>
     <title>AssetVault · SE411 Asset Manager</title>
   </head>
   <body>

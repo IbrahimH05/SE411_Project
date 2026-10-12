@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AssetVault</title>
+    <script>
+      // GitHub Pages serves this for any unknown path. The app is a single-page
+      // app, so /about is "unknown" to the server even though React Router knows
+      // it. Remember where the visitor was headed, bounce to the app, and let
+      // index.html put the URL back.
+      sessionStorage.setItem('spa-redirect', location.href);
+      location.replace('/SE411_Project/');
+    </script>
+  </head>
+  <body></body>
+</html>

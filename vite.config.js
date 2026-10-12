@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  // Served from https://<user>.github.io/SE411_Project/, not from a domain root.
+  base: '/SE411_Project/',
   plugins: [react()],
   test: {
     environment: 'jsdom',
