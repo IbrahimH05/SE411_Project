@@ -27,6 +27,14 @@ jobs:
 
       - run: npm ci
 
+      # Anything that reaches a visitor blocks the deploy.
+      - name: Audit runtime dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      # Build-time advisories are reported but do not block, since they never ship.
+      - name: Audit build dependencies (informational)
+        run: npm audit --audit-level=high || true
+
       # A failing suite blocks the deploy rather than shipping a broken page.
       - run: npm test
 

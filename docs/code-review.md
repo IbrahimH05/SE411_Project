@@ -66,6 +66,25 @@ Part 1 makes no requests and holds no credentials, so there is nothing to leak. 
 must not put API keys in frontend code: anything in a Vite `VITE_*` variable is
 **compiled into the public bundle** and readable by any visitor.
 
+### S-6 — A transitive dev dependency advisory appeared after the build · Fixed
+
+The first audit of this project reported zero vulnerabilities. Weeks later a clean
+`npm install` warned of one **high** severity issue in `source-map-js` 1.2.1
+([GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q), an
+event-loop denial of service), reached transitively through the build tooling.
+
+Two things are worth drawing out:
+
+- **It was dev-only.** `npm audit --omit=dev` stayed clean throughout, so nothing
+  reached a visitor of the deployed site. The distinction between a build-time and a
+  runtime dependency is the whole reason that flag exists.
+- **"0 vulnerabilities" is a timestamp, not a property.** Nothing in this repository
+  changed; the advisory did. A dependency audit is only ever true as of the day it
+  was run, which is the argument for running it in CI rather than once at the end.
+
+Fixed by `npm audit fix`, a single patch bump to 1.2.2 recorded in the lockfile.
+Tests, lint and build all unaffected.
+
 ### S-5 — Financial data in a client-only store · Accepted for Part 1
 
 The portfolio never leaves the browser tab and is gone on refresh, which is the
@@ -309,6 +328,7 @@ noted rather than silently omitted.
 | Priority | Item | Ref |
 | --- | --- | --- |
 | **High** | Re-apply all validation server-side; never trust the client | S-2 |
+| Medium | Run `npm audit` in the deploy workflow so advisories surface on their own | S-6 |
 | **High** | Store money as integer minor units or use a decimal library | C-1 |
 | **High** | Add authentication and authorisation before persisting holdings | S-5 |
 | Medium | Adopt TypeScript for compile-time safety across the API boundary | Q-5 |
