@@ -5,12 +5,22 @@ bonds, funds, cryptocurrency and cash.
 
 **SE411 Software Construction · Fall 2026/2027 · Section 1383**
 
+### ▶ Live demo: https://ibrahimh05.github.io/SE411_Project/
+
+No install needed — the deployed app is the quickest way to see it. It redeploys
+automatically from `main` on every push.
+
 Part 1 is the frontend only. The portfolio is an in-memory collection of JavaScript
 objects, as the brief requires — no database. Part 2 adds the backend.
+
+> Because the portfolio lives in memory, **refreshing the page resets it to the seed
+> data**. Anything you add on the live demo is yours alone and disappears on reload.
 
 ---
 
 ## Quick start
+
+Or run it locally:
 
 ```bash
 npm install
@@ -71,6 +81,24 @@ reports **0 vulnerabilities**.
 
 ---
 
+## Deployment
+
+Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
+which installs, audits, tests, builds and publishes to GitHub Pages. The order is
+deliberate: a runtime vulnerability or a failing test stops the deploy rather than
+shipping a broken page.
+
+Two details are needed because Pages serves from a subpath with no server-side
+rewrite:
+
+- `base: '/SE411_Project/'` in `vite.config.js`, with a matching `basename` on
+  `BrowserRouter`, so assets resolve.
+- `public/404.html` stashes the requested URL and bounces to the app, which restores
+  it before React mounts — without it, opening `/about` directly would 404 even though
+  React Router knows the route.
+
+---
+
 ## Architecture in one picture
 
 ```
@@ -116,6 +144,6 @@ The About page in the app shows the same list.
 
 ## Scope note
 
-Part 1 keeps the portfolio in memory, so **refreshing the page resets it to the seed
-data**. That is intentional: the brief specifies a collection of objects rather than a
-database, and persistence arrives with the backend in Part 2.
+Part 1 keeps the portfolio in memory, so refreshing resets it to the seed data. That
+is intentional: the brief specifies a collection of objects rather than a database,
+and persistence arrives with the backend in Part 2.

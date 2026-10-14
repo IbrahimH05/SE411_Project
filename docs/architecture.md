@@ -16,6 +16,7 @@
 | Styling | **Hand-written CSS with custom properties** | Zero dependencies, no build step, every rule explainable in a viva. Design tokens give consistency without a framework |
 | Tests | **Vitest + React Testing Library** | Vitest shares Vite's transform pipeline, so tests need no separate build config. RTL tests behaviour through the DOM the user actually sees |
 | Linting | **oxlint** | Ships with the Vite template; fast |
+| Hosting | **GitHub Pages** via Actions | Free, no extra account, and it lives beside the repo that is being submitted. The workflow audits, tests and builds before publishing, so a failing check stops the deploy |
 
 **No runtime dependency beyond React, React DOM and React Router.** Every other
 package is a dev dependency. `npm audit` reports 0 vulnerabilities.
